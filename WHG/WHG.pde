@@ -1,5 +1,5 @@
 Player player;
-Enemy[] enemies = new Enemy[200000]; //initialized array
+Enemy[] enemies = new Enemy[50]; //initialized array
 
 public void setup() {
   size(800,400);
@@ -13,6 +13,8 @@ public void draw() {
   player.move();
   for (int i = 0; i < enemies.length; i++) {
     enemies[i].show();
+    enemies[i].move();
+    enemies[i].collideWorldBounds();
   }
 }
 
