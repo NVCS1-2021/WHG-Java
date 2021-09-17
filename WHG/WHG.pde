@@ -20,7 +20,31 @@ public void draw() {
 
 public void keyPressed() {
   if (key == 'w') {
-    player.vy = -player.SPEED;
+    player.vel.y = -player.SPEED;
+  }
+  if (key == 'a') {
+    player.vel.x = -player.SPEED;
+  }
+  if (key == 's') {
+    player.vel.y = player.SPEED;
+  }
+  if (key == 'd') {
+    player.vel.x = player.SPEED;
+  }
+}
+
+public void keyReleased() {
+  if (key == 'w') {
+    player.vel.y = 0;
+  }
+  if (key == 'a') {
+    player.vel.x = 0;
+  }
+  if (key == 's') {
+    player.vel.y = 0;
+  }
+  if (key == 'd') {
+    player.vel.x = 0;
   }
 }
 
