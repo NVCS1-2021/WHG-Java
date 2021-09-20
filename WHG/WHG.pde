@@ -14,6 +14,7 @@ public void draw() {
   player.show();
   player.move();
   for (int i = 0; i < enemies.length; i++) {
+    player.collides(enemies[i]);
     enemies[i].show();
     enemies[i].move();
     enemies[i].collideWorldBounds();

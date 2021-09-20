@@ -4,7 +4,7 @@ public class Player {
   private final int SPEED = 5, SIZE = 20;
   
   public Player(int x, int y) {
-    hp = 0;
+    hp = 100;
     score = 0;
     pos = new PVector(x,y);
     vel = new PVector(0,0);
@@ -23,7 +23,7 @@ public class Player {
     double dist = PVector.sub(this.pos,e.pos).mag();
     if (dist <= this.SIZE / 2 + e.SIZE / 2) {
       hp--;
-      System.out.println(hp);
+      System.out.println("HP: "+hp);
     }
   }
 }
