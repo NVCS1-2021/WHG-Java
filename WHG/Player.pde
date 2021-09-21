@@ -35,4 +35,13 @@ public class Player {
       System.out.println("Score: "+score);
     }
   }
+  
+  public void collides(Finish f) {
+    if (this.pos.x >= f.pos.x) {
+      textAlign(CENTER,CENTER);
+      textSize(48);
+      text("You win!",width/2,height/2);
+      noLoop();
+    }
+  }
 }

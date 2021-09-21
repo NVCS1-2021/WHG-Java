@@ -16,6 +16,7 @@ public void draw() {
   finish.show();
   player.show();
   player.move();
+  player.collides(finish);
   for (int i = 0; i < enemies.length; i++) {
     player.collides(enemies[i]);
     enemies[i].show();    
