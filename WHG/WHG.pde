@@ -1,26 +1,32 @@
 Player player;
 Enemy[] enemies = new Enemy[50]; //initialized array
 Coin[] coins = new Coin[10];
+Finish finish;
 
 public void setup() {
   size(800,400);
   player = new Player(50,height/2);
+  finish = new Finish(width,height);
   spawnEnemies();
   spawnCoins();
 }
 
 public void draw() {
   background(200);
+  finish.show();
   player.show();
   player.move();
   for (int i = 0; i < enemies.length; i++) {
     player.collides(enemies[i]);
-    enemies[i].show();
+    enemies[i].show();    
     enemies[i].move();
     enemies[i].collideWorldBounds();
   }
   for (int i = 0; i < coins.length; i++) {
+    if (coins[i].active == false) //coins[i] thisCoin
+      continue; //skip this iteration
     coins[i].show();
+    player.collides(coins[i]);
   }
 }
 

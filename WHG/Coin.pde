@@ -1,6 +1,7 @@
 public class Coin {
   private PVector pos;
   private final int SIZE = 20;
+  private boolean active = true;
   
   public Coin(int x, int y) {
     pos = new PVector(x,y);

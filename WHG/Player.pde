@@ -26,4 +26,13 @@ public class Player {
       System.out.println("HP: "+hp);
     }
   }
+  
+  public void collides(Coin c) {
+    double dist = PVector.sub(this.pos,c.pos).mag();
+    if (dist <= this.SIZE / 2 + c.SIZE / 2) {
+      score++;
+      c.active = false;
+      System.out.println("Score: "+score);
+    }
+  }
 }
