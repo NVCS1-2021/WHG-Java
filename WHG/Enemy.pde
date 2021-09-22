@@ -16,12 +16,12 @@ public class Enemy {
     pos.add(vel);
   }
   
-  public void collideWorldBounds() {
-    if (pos.y > height) {
+  public void collideWorldBounds(World w) {
+    if (pos.y > w.size.y) {
       PVector bounce = new PVector(0,-SPEED);
       vel.add(bounce);
     }
-    if (pos.y < 0) {
+    if (pos.y < w.MARGIN) {
       PVector bounce = new PVector(0,SPEED);
       vel.add(bounce);
     }

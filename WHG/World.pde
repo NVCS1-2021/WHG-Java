@@ -9,13 +9,20 @@ public class World {
   
   public void show() {
     int row = 0, col = 0;
-    final int SCALE = 20;
-    for (int i = 0; i < 100; i++) {
-      fill(80);
-      square(row*SCALE,col*SCALE,SCALE);
-      if (col > 3)
-        row++;
+    final int SCALE = 20,
+      MAX_COLS = (int) (size.x / SCALE),
+      MAX_ROWS = (int) (size.y / SCALE);
+    for (int i = 0; i < MAX_COLS * MAX_ROWS; i++) {
+      if (i % 2 == 0) 
+        fill(192);
+      else
+        fill(220);
+      square(col*SCALE+pos.x,row*SCALE+pos.y,SCALE);
       col++;
+      if (col >= MAX_COLS) {
+        row++;
+        col = 0;
+      }      
     }
   }
 }

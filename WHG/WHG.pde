@@ -24,7 +24,7 @@ public void draw() {
     player.collides(enemies[i]);
     enemies[i].show();    
     enemies[i].move();
-    enemies[i].collideWorldBounds();
+    enemies[i].collideWorldBounds(world);
   }
   for (int i = 0; i < coins.length; i++) {
     if (coins[i].active == false) //coins[i] thisCoin
@@ -66,7 +66,7 @@ public void keyReleased() {
 
 private void spawnEnemies() {
   for (int i = 0; i < enemies.length; i++) {
-    enemies[i] = new Enemy((int)(Math.random()*width),(int)(Math.random()*height));
+    enemies[i] = new Enemy((int)(Math.random()*world.size.x + world.MARGIN),(int)(Math.random()*world.size.y + world.MARGIN));
   }
 }
 
