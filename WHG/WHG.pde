@@ -2,17 +2,20 @@ Player player;
 Enemy[] enemies = new Enemy[50]; //initialized array
 Coin[] coins = new Coin[10];
 Finish finish;
+World world;
 
 public void setup() {
   size(800,400);
   player = new Player(50,height/2);
   finish = new Finish(width,height);
+  world = new World();
   spawnEnemies();
   spawnCoins();
 }
 
 public void draw() {
   background(200);
+  world.show();
   finish.show();
   player.show();
   player.move();
