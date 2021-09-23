@@ -16,7 +16,20 @@ public class Player {
   }
   
   public void move() {
-    pos.add(vel);
+    if (canMove())
+      pos.add(vel);
+  }
+  
+  public boolean canMove() {
+    boolean canMove;
+    PVector newPos = PVector.add(pos, vel);
+    if (newPos.y < world.MARGIN || newPos.y + SIZE > world.size.y + world.MARGIN || newPos.x < world.MARGIN) {
+      canMove = false;
+    }
+    else {
+      canMove = true;
+    }
+    return canMove;
   }
   
   public void collides(Enemy e) {
@@ -48,7 +61,7 @@ public class Player {
   }
   
   public void collides(Finish f) {
-    if (this.pos.x >= f.pos.x) {
+    if (this.pos.x >= f.pos.x && score >= 10) {
       textAlign(CENTER,CENTER);
       textSize(48);
       text("You win!",width/2,height/2);
