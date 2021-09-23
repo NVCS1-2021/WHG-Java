@@ -23,8 +23,19 @@ public class Player {
     double dist = PVector.sub(this.pos,e.pos).mag();
     if (dist <= this.SIZE / 2 + e.SIZE / 2) {
       hp--;
+      if (hp <= 0) {
+        youLose();
+      }
       System.out.println("HP: "+hp);
     }
+  }
+  
+  private void youLose() {
+    textAlign(CENTER,CENTER);
+    textSize(48);
+    text("GAME OVER!",width/2,height/2);
+    pos = new PVector(50,height/2);
+    hp = 50;
   }
   
   public void collides(Coin c) {

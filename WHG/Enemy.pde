@@ -17,11 +17,11 @@ public class Enemy {
   }
   
   public void collideWorldBounds(World w) {
-    if (pos.y > w.size.y) {
+    if (pos.y + SIZE/2 >= w.size.y) {
       PVector bounce = new PVector(0,-SPEED);
       vel.add(bounce);
     }
-    if (pos.y < w.MARGIN) {
+    if (pos.y - SIZE/2 <= w.MARGIN) {
       PVector bounce = new PVector(0,SPEED);
       vel.add(bounce);
     }

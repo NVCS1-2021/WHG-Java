@@ -72,6 +72,6 @@ private void spawnEnemies() {
 
 private void spawnCoins() {
   for (int i = 0; i < coins.length; i++) {
-    coins[i] = new Coin((int)(Math.random()*width),(int)(Math.random()*height));
+    coins[i] = new Coin((int)(Math.random()*world.size.x + world.MARGIN),(int)(Math.random()*world.size.y + world.MARGIN));
   }
 }
